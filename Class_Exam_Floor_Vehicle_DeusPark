@@ -1,11 +1,15 @@
 class Vehicle():
-    def __init__(self, vid, model, user, hp, mileage):
+    def __init__(self, brand, vid, model, user, hp, mileage):
+        self.__brand = brand
         self.__vid = vid
         self.__model = model 
         self.__user = user
         self.__hp = hp
         self.__mileage = mileage
     
+    def getbrand(self):
+        return self.__brand
+
     def getvid(self):
         return self.__vid
 
@@ -20,6 +24,10 @@ class Vehicle():
 
     def getmileage(self):
         return self.__mielage
+    
+    def setbrand(self, n):
+        if isinstance(n, str):
+            self.__brand = n
     
     def setvid(self, n):
         if isinstance(n, str):
@@ -130,7 +138,34 @@ class DeusPark():
                 MaxPotence = MasPotenteLista[b]
         return MaxPotence
     
-    def consumoMedioPorPlanta()
+    def consumoMedioPorPlanta(self):
+        avglist = []
+        for i in range(0, self.__flquant):
+            totalcons = 0
+            for x in range(0, len(self.__park[i].getvclist())):
+                totalcons = totalcons + (self.__park[i].getvclist())[x].getmileage()
+            avglist.append( totalcons / (self.__park[i].getvcquant()))
+        return avglist
+    
+    def consumoMedioPorMarca(self, marca):
+        consumtot = 0
+        caramm = 0
+        for i in range(0, self.__flquant):
+            consumoporplanta = 0
+            carporplanta = 0
+            for x in range(0, len(self.__park[i].getvclist())):
+                if (self.__park[i].getvclist())[x].getbrand() == marca:
+                    consumoporplanta = consumoporplanta + (self.__park[i].getvclist())[x].getmileage()
+                    carporplanta = carporplanta + 1
+            consumtot = consumtot + consumoporplanta
+            caramm = caramm + carporplanta
+        return (consumtot / carmm)
+
+
+            
+                
+
+
         
             
 
