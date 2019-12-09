@@ -126,7 +126,7 @@ class DeustoGelati:
         elecfin = ""
         while elecfin.lower() != "no":
             listasabores = []
-            while eleccion.lower() != "salir"
+            while eleccion.lower() != "salir":
                 print(f"Sabores disponibles: {self.__tastenames} ")
                 print("Elige el numero del sabor para añadírselo a tu helado o escribe salir para salir:")
                 eleccion = input()
@@ -165,7 +165,7 @@ class DeustoGelati:
                     hidratos_total += 0.8 * (hidratos_per_helado + 17.7)
                     proteinas_total += 0.8 * (proteinas_per_helado + 1.67)
                     grasas_total += 0.8 * (grasas_per_helado + 10.9)
-                elif helado.getTamanyo = 2:
+                elif helado.getTamanyo == 2:
                     hidratos_total += 1.2 * (hidratos_per_helado + 17.7)
                     proteinas_total += 1.2 * (proteinas_per_helado + 1.67)
                     grasas_total += 1.2 * (grasas_per_helado + 10.9)
@@ -176,5 +176,9 @@ class DeustoGelati:
         print(f"En esta lista de helados: Hidratos: {hidratos_total}, Proteinas: {proteinas_total}, Grasas: {grasas_total}")
 
     def mostrarIngresoMedio(self, helados):
-        
+        lista_precios = []
+        for helado in helados:
+            lista_precios.append(helado.getPrecio())
+        print(sum(lista_precios)/len(lista_precios))
+
 #if __name__ = "__main__":
