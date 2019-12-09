@@ -108,6 +108,7 @@ class Helado:
             precio += 0.5
         if self.__adornos:
             precio += 1
+        return precio
 
 class DeustoGelati:
 
