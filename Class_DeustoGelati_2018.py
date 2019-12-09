@@ -73,6 +73,13 @@ class Helado:
     def getAdornos(self):
         return self.__adornos
     
+    def getSabores(self):
+        return self.__sabores
+    
+    def setSabores(self, nsabores):
+        if isinstance(nsabores, list):
+            self.__sabores = nsabores
+    
     def setTipo(self, ntipo):
         if ntipo in [0,1]:
             self.__tipo = ntipo
@@ -103,4 +110,71 @@ class Helado:
             precio += 1
 
 class DeustoGelati:
+
+    def __init__(self, helados, tastes):
+        self.__helados = helados
+        self.__tastes = tastes
+        self.__tastenames = []
+        self.__numero = 1
+        for taste in tastes:
+            self.__tastenames.append(f"[{self.__numero}] {self.__tastes[taste].getNombre()}")
+            self.__numero += 1
     
+    def registrarVentas(self):
+        print("¡Bienvenido a la heladría Deusto!")
+        eleccion = ""
+        elecfin = ""
+        while elecfin.lower() != "no":
+            listasabores = []
+            while eleccion.lower() != "salir"
+                print(f"Sabores disponibles: {self.__tastenames} ")
+                print("Elige el numero del sabor para añadírselo a tu helado o escribe salir para salir:")
+                eleccion = input()
+                listasabores.append(self.__tastes[int(eleccion) - 1])
+            print("Elige tu tipo de cucurucho: 0: cucurucho, 1: tarrina")
+            tipocucurucho = int(input())
+            print('Elige el tamaño de tu helado: 0: Pequeño, 1: Mediano, 2: Grande')
+            tamanyohelado = int(input())
+            print('Escribe el tipo de tu cobertura: ')
+            tipocobertura = input()
+            print("Quieres adornos?: 1.- Si, 2.- No")
+            elec2 = int(input())
+            if elec2 == 1:
+                haycobertura = True
+            elif elec2 == 2:
+                haycobertura = False
+            self.__helados.append(Helado(tipocucurucho, tamanyohelado, tipocobertura, haycobertura, listasabores))
+            print("¡Hecho! Se ha añadido tu helado.")
+            print("Quiere introducir otro helado?: ")
+            elecfin = str(input())
+
+    def mostrarTotalesNutriciones(self, helados):
+        hidratos_total = 0
+        proteinas_total = 0
+        grasas_total = 0
+        for helado in helados:
+            hidratos_per_helado = 0
+            proteinas_per_helado = 0
+            grasas_per_helado = 0
+            for sabor in helado.getSabores():
+                hidratos_per_helado += sabor.getHidratos()
+                proteinas_per_helado += sabor.getProteinas()
+                grasas_per_helado += sabor.getGrasas()
+            if helado.getTipo() == 0:
+                if helado.getTamanyo() == 0:
+                    hidratos_total += 0.8 * (hidratos_per_helado + 17.7)
+                    proteinas_total += 0.8 * (proteinas_per_helado + 1.67)
+                    grasas_total += 0.8 * (grasas_per_helado + 10.9)
+                elif helado.getTamanyo = 2:
+                    hidratos_total += 1.2 * (hidratos_per_helado + 17.7)
+                    proteinas_total += 1.2 * (proteinas_per_helado + 1.67)
+                    grasas_total += 1.2 * (grasas_per_helado + 10.9)
+                else:
+                    hidratos_total += (hidratos_per_helado + 17.7)
+                    proteinas_total += (proteinas_per_helado + 1.67)
+                    grasas_total += (grasas_per_helado + 10.9)
+        print(f"En esta lista de helados: Hidratos: {hidratos_total}, Proteinas: {proteinas_total}, Grasas: {grasas_total}")
+
+    def mostrarIngresoMedio(self, helados):
+        
+#if __name__ = "__main__":
