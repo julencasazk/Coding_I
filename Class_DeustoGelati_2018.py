@@ -55,7 +55,7 @@ class Helado:
         if self.__adornos:
             self.__hayAdornos = "con adornos"
         for sabor in sabores:
-            self.__listaSabores.append(self.__sabores.getNombre())
+            self.__listaSabores.append(sabor.getNombre())
             
 
     def __str__(self):
