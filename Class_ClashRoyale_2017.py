@@ -86,8 +86,8 @@ class Jugador:
                 self.__listacartas.append(carta.getNombre())
 
         def crearJugadores(self):
-            salir = ""
-            while int(salir) != 1:
+            salir = 0
+            while salir != 1:
                 print("Introduce el nombre de tu nuevo jugador: ")
                 nombre_jugador = str(input())
                 print("Introduce el numero de trofeos de tu jugador: ")
@@ -110,5 +110,6 @@ class Jugador:
                         print("Terminar de introducir cartas? [1] Si, [2] No")
                         elec2 = int(input())
                 print("Salir de introducir jugador? [1] Si, salir [2] Introducir otro jugador")
+                salir = int(input())
 
         def simularPartidas(self, npartidas):
