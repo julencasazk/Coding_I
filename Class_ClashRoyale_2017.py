@@ -76,40 +76,40 @@ class Jugador:
             lista_consumo.append(carta.getCoste())
         return (sum(lista_consumo)/len(lista_consumo))
 
-    class ClashRoyale:
-        
-        def __init__(self, jugadores, cartas):
-            self.__jugadores = jugadores
-            self.__cartas = cartas
-            self.__listacartas = []
-            for carta in cartas:
-                self.__listacartas.append(carta.getNombre())
+class ClashRoyale:
+    
+    def __init__(self, jugadores, cartas):
+        self.__jugadores = jugadores
+        self.__cartas = cartas
+        self.__listacartas = []
+        for carta in cartas:
+            self.__listacartas.append(carta.getNombre())
 
-        def crearJugadores(self):
-            salir = 0
-            while salir != 1:
-                print("Introduce el nombre de tu nuevo jugador: ")
-                nombre_jugador = str(input())
-                print("Introduce el numero de trofeos de tu jugador: ")
-                trofeos_jugador = int(input())
-                print("Establece el nivel del jugador: ")
-                nivel_jugador = int(input())
-                self.__jugadores.append(Jugador(nombre_jugador, trofeos_jugador, nivel_jugador, []))
-                print("Hecho. ¿Quiere introducir cartas a su baraja? [1] Si, [2] No")
-                elec1 = int(input())
-                if elec1 == 1:
-                    elec2 = 0
-                    while elec2 != 1:
-                        print("")
-                        print(f"Lista de cartas disponibles: {self.__listacartas}")
-                        print("Escribe el nombre de la carta: ")
-                        nombre_carta = str(input())
-                        for carta in self.__cartas:
-                            if nombre_carta.lower() == carta.getNombre():
-                                self.__jugadores[-1].setBaraja(self.__jugadores[-1].getBaraja().append(carta))
-                        print("Terminar de introducir cartas? [1] Si, [2] No")
-                        elec2 = int(input())
-                print("Salir de introducir jugador? [1] Si, salir [2] Introducir otro jugador")
-                salir = int(input())
+    def crearJugadores(self):
+        salir = 0
+        while salir != 1:
+            print("Introduce el nombre de tu nuevo jugador: ")
+            nombre_jugador = str(input())
+            print("Introduce el numero de trofeos de tu jugador: ")
+            trofeos_jugador = int(input())
+            print("Establece el nivel del jugador: ")
+            nivel_jugador = int(input())
+            self.__jugadores.append(Jugador(nombre_jugador, trofeos_jugador, nivel_jugador, []))
+            print("Hecho. ¿Quiere introducir cartas a su baraja? [1] Si, [2] No")
+            elec1 = int(input())
+            if elec1 == 1:
+                elec2 = 0
+                while elec2 != 1:
+                    print("")
+                    print(f"Lista de cartas disponibles: {self.__listacartas}")
+                    print("Escribe el nombre de la carta: ")
+                    nombre_carta = str(input())
+                    for carta in self.__cartas:
+                        if nombre_carta.lower() == carta.getNombre():
+                            self.__jugadores[-1].setBaraja(self.__jugadores[-1].getBaraja().append(carta))
+                    print("Terminar de introducir cartas? [1] Si, [2] No")
+                    elec2 = int(input())
+            print("Salir de introducir jugador? [1] Si, salir [2] Introducir otro jugador")
+            salir = int(input())
 
-        def simularPartidas(self, npartidas):
+    def simularPartidas(self, npartidas):
