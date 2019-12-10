@@ -111,4 +111,4 @@ class Jugador:
                         elec2 = int(input())
                 print("Salir de introducir jugador? [1] Si, salir [2] Introducir otro jugador")
 
-        
+        def simularPartidas(self, npartidas):
