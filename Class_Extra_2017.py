@@ -32,20 +32,27 @@ class Extra:
 class Coche:
 
     def __init__(self, modelo, motor, pintura, descapotable, extras):
-        self.__modelo = modelo
-        self.__motor = motor
-        self.__pintura = pintura
-        self.__descapotable = descapotable
+        self.__modelo = 0
+        self.setModelo(modelo)
+        self.__motor = 0
+        self.setMotor(motor)
+        self.__nombremodelo = ['compacto','deportivo','berlina','familiar'][self.__modelo]
+        self.__nombremotor = ['gasolina','diesel','hibrido','electrico'][self.__motor]
+        self.__pintura = ''
+        self.setPintura(pintura)
+        self.__descapotable = False
+        self.setDescapotable(descapotable)
         self.__isroofless = 'con techo'
         if self.__descapotable:
             self.__isroofless = 'descapotable'
-        self.__extras = extras
+        self.__extras = []
+        self.setExtras(extras)
         self.__nombreExtras = ''
         for extra in self.__extras:
             self.__nombreExtras = f'{self.__nombreExtras}, {extra.getNombre()}'
 
     def __str__(self):
-        return f'Coche '
+        return f'Coche {self.__nombremodelo} {self.__pintura} {self.__isroofless} con motor {self.__nombremotor} \n Extras: {self.__nombreExtras}'
 
     def getModelo(self):
         return self.__modelo
@@ -81,3 +88,21 @@ class Coche:
     def setExtras(self, nextras):
         if isinstance(nextras, list):
             self.__extras = nextras
+    
+    def getPrecioBase(self):
+        precio = [6000, 12000, 18000, 20000][self.__modelo] + [0, 2000, 3500, 5000][self.__motor]
+        if 'metalizado' in self.__pintura:
+            precio += 2000
+        if self.__descapotable:
+            precio += 4000
+        return precio
+
+class DeustoCar:
+
+    def __init__(self, coches, extras):
+        self.__coches = coches
+        self.__extras = extras
+    
+    def registrarVentas(self):
+        
+
