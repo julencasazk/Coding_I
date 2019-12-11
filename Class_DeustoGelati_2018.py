@@ -117,8 +117,8 @@ class DeustoGelati:
         self.__tastes = tastes
         self.__tastenames = []
         self.__numero = 1
-        for taste in tastes:
-            self.__tastenames.append(f"[{self.__numero}] {self.__tastes[taste].getNombre()}")
+        for taste in self.__tastes:
+            self.__tastenames.append(f"{self.__numero} {taste.getNombre()}")
             self.__numero += 1
     
     def registrarVentas(self):
@@ -127,11 +127,14 @@ class DeustoGelati:
         elecfin = ""
         while elecfin.lower() != "no":
             listasabores = []
-            while eleccion.lower() != "salir":
+            while True:
                 print(f"Sabores disponibles: {self.__tastenames} ")
                 print("Elige el numero del sabor para añadírselo a tu helado o escribe salir para salir:")
                 eleccion = input()
-                listasabores.append(self.__tastes[int(eleccion) - 1])
+                if eleccion == "salir":
+                    break
+                else:
+                    listasabores.append(self.__tastes[int(eleccion)-1])
             print("Elige tu tipo de cucurucho: 0: cucurucho, 1: tarrina")
             tipocucurucho = int(input())
             print('Elige el tamaño de tu helado: 0: Pequeño, 1: Mediano, 2: Grande')
@@ -149,7 +152,8 @@ class DeustoGelati:
             print("Quiere introducir otro helado?: ")
             elecfin = str(input())
 
-    def mostrarTotalesNutriciones(self, helados):
+    def mostrarTotalesNutriciones(self):
+        helados = self.__helados
         hidratos_total = 0
         proteinas_total = 0
         grasas_total = 0
@@ -182,4 +186,13 @@ class DeustoGelati:
             lista_precios.append(helado.getPrecio())
         print(sum(lista_precios)/len(lista_precios))
 
-#if __name__ = "__main__":
+vainilla = Sabor("Vainilla", 38, 12, 300)
+chocolate = Sabor("Chocolate", 60, 20, 420)
+almendras = Sabor("Almendras", 50.3, 13, 500)
+oreo = Sabor("Oreo", 23, 12, 500)
+fresa = Sabor("Fresa", 12, 20.6, 120)
+
+sabores = [vainilla, chocolate, almendras, oreo, fresa]
+gelateria = DeustoGelati([], sabores)
+gelateria.registrarVentas()
+gelateria.mostrarTotalesNutriciones()
