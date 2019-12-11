@@ -121,6 +121,8 @@ class ClashRoyale:
             while jugador1 == jugador2:
                 jugador1 = self.__jugadores[random.randint(0, len(self.__jugadores))]
                 jugador2 = self.__jugadores[random.randint(0, len(self.__jugadores))]
+            print(jugador1)
+            print(jugador2)
             lista_jugadores = [jugador1, jugador2]
             vida_jugador1 = 0
             vida_jugador2 = 0
@@ -134,3 +136,13 @@ class ClashRoyale:
                     lista_vidas[i] += lista_jugadores.[i].getBaraja()[random.randint(0, len(lista_jugadores.[i].getBaraja()))].getVida()
                     lista_ataques[i] += lista_jugadores.[i].getBaraja()[random.randint(0, len(lista_jugadores.[i].getBaraja()))].getAtaque()
                     coste += lista_jugadores.[i].getBaraja()[random.randint(0, len(lista_jugadores.[i].getBaraja()))].getCoste()
+            if (vida_jugador1 - ataque_jugador2) == (vida_jugador2 - ataque_jugador1):
+                print("Empate, que pena")
+            elif (vida_jugador1 - ataque_jugador2) > (vida_jugador2 - ataque_jugador1):
+                print(f"Gana {jugador1.getNombre()}")
+                jugador1.setTrofeos(jugador1.getTrofeos() + 30)
+                jugador2.setTrofeos(jugador2.getTrofeos() - 15)
+            else:
+                print(f"Gana {jugador2.getNombre()}")
+                jugador2.setTrofeos(jugador2.getTrofeos() + 30)
+                jugador1.setTrofeos(jugador1.getTrofeos() - 15)
