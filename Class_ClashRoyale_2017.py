@@ -1,3 +1,5 @@
+import random
+
 class Carta:
     
     def __init__(self, nombre, coste, vida, ataque):
@@ -113,3 +115,22 @@ class ClashRoyale:
             salir = int(input())
 
     def simularPartidas(self, npartidas):
+        for partida in range(0, npartidas):
+            jugador1 = ""
+            jugador2 = " "
+            while jugador1 == jugador2:
+                jugador1 = self.__jugadores[random.randint(0, len(self.__jugadores))]
+                jugador2 = self.__jugadores[random.randint(0, len(self.__jugadores))]
+            lista_jugadores = [jugador1, jugador2]
+            vida_jugador1 = 0
+            vida_jugador2 = 0
+            ataque_jugador1 = 0
+            ataque_jugador2 = 0
+            lista_vidas = [vida_jugador1, vida_jugador2]
+            lista_ataques = [ataque_jugador1, ataque_jugador2]
+            for i in range(0,2):
+                coste = 0
+                while coste <= 86:
+                    lista_vidas[i] += lista_jugadores.[i].getBaraja()[random.randint(0, len(lista_jugadores.[i].getBaraja()))].getVida()
+                    lista_ataques[i] += lista_jugadores.[i].getBaraja()[random.randint(0, len(lista_jugadores.[i].getBaraja()))].getAtaque()
+                    coste += lista_jugadores.[i].getBaraja()[random.randint(0, len(lista_jugadores.[i].getBaraja()))].getCoste()
