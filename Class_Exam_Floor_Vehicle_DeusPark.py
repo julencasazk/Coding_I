@@ -94,7 +94,7 @@ class DeusPark():
         self.__park = []
         self.__flquant = flquant
         self.__lotsperfl = lotsperfl
-        for i in range(0, floorquant)
+        for i in range(0, floorquant):
             self.__park.append(Floor(i, [], self.__lotsperfl))
 
     def poblarParking(self, vehiclelist):
@@ -128,7 +128,7 @@ class DeusPark():
             for x in range(0, len(self.__park[i].getvclist())):
                 hplist.append((self.__park[i].getvclist())[x].gethp())
             for y in range(0, len(self.__park[i].getvclist())):
-                if max(hplist) == (self.__park[i].getvclist())[y].gethp()
+                if max(hplist) == (self.__park[i].getvclist())[y].gethp():
                     MasPotenteLista.append((self.__park[i].getvclist())[y])
         cvlist = []
         for z in range(0, len(MasPotenteLista)):
@@ -162,18 +162,4 @@ class DeusPark():
         return (consumtot / carmm)
 
 
- #sinceramente me da tremenda pereza probarlo con los vehiculos que da el examen           
-                
-
-
-        
-            
-
-
-
-
-            
-
-                
-
-            
+ #sinceramente me da tremenda pereza probarlo con los vehiculos que da el examen, bruh           
