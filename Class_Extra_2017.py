@@ -104,5 +104,5 @@ class DeustoCar:
         self.__extras = extras
     
     def registrarVentas(self):
-        
 
+        

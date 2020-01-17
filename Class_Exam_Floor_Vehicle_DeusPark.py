@@ -159,7 +159,8 @@ class DeusPark():
                     carporplanta = carporplanta + 1
             consumtot = consumtot + consumoporplanta
             caramm = caramm + carporplanta
-        return (consumtot / carmm)
+        return (consumtot / caramm)
 
 
- #sinceramente me da tremenda pereza probarlo con los vehiculos que da el examen, bruh           
+ #sinceramente me da tremenda pereza probarlo con los vehiculos que da el examen, bruh epicnesss
+ #           
